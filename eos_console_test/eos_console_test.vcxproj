@@ -133,9 +133,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="eos_account.cpp" />
     <ClCompile Include="eos_console_test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="eos_account.h" />
+    <ClInclude Include="eos_auth.h" />
     <ClInclude Include="eos_error.h" />
     <ClInclude Include="eos_handle.h" />
   </ItemGroup>
