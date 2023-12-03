@@ -135,12 +135,14 @@
   <ItemGroup>
     <ClCompile Include="eos_account.cpp" />
     <ClCompile Include="eos_console_test.cpp" />
+    <ClCompile Include="eos_lobby_details.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="eos_account.h" />
     <ClInclude Include="eos_auth.h" />
     <ClInclude Include="eos_error.h" />
     <ClInclude Include="eos_handle.h" />
+    <ClInclude Include="eos_lobby_details.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
