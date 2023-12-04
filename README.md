@@ -2,7 +2,7 @@
 
 This program is lobby function's test for Epic Online Services (EOS).
 
-## 実行方法
+## 実行準備
 
 1. EPIC アカウントを作成します
 1. [DevPortal](https://dev.epicgames.com/portal/ja/) にサインインし、
@@ -12,4 +12,8 @@ This program is lobby function's test for Epic Online Services (EOS).
 1. ルートフォルダにcredentials.hを作成し、そこへ貼り付けます
 1. 「SDKとリリースノート」から「C SDK」の「EOS-SDK-27379709-v1.16.1」をダウンロードし、ルートフォルダへ解凍します。
 1. eos_console_test.slnをvs2022で開きビルドを行います
+
+## 実行内容
+
+- アプリケーション認証情報とログイン情報を使ってEOSに接続し、ロビー作成、属性設定、検索のテストを行う構成になっています
 

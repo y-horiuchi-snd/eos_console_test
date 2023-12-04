@@ -63,7 +63,7 @@ public:
                     return;
                 }
 
-                // eosの内部進行を進めるために呼び出す必要がある、１フレームに一度程度呼び出すだけでよい
+                // eosの内部進行を進めるために呼び出す必要がある、本来は１フレームに一度程度呼び出すだけでよい
                 EOS_Platform_Tick(m_eos.m_platform);
 
                 if (m_error.IsComplete())
@@ -76,6 +76,7 @@ public:
         }
     };
 
+    /// @brief ロビーのIDを管理する
     struct Lobby
     {
         std::string m_id;
@@ -107,6 +108,7 @@ public:
         }
     };
 
+    /// @brief ロビーの属性を管理する
     class LobbyAttribute
     {
     private:
@@ -118,6 +120,7 @@ public:
 
         ~LobbyAttribute() { Release(); }
 
+    public:
         void Initialize(EOS_Lobby_Attribute* attr) { m_attr.Initialize(attr, EOS_Lobby_Attribute_Release); }
         void Release() { m_attr.Release(); }
 
@@ -257,6 +260,7 @@ public:
     EOS() {}
     ~EOS() { Finalize(); }
 
+    /// @brief 初期化
     void Initialize()
     {
         puts(__func__);
@@ -504,6 +508,7 @@ public:
     {
         puts(__func__);
 
+        // 更新用インターフェイス作成
         eos::Handle<EOS_HLobbyModification> modification;
         {
             auto lobby = EOS_Platform_GetLobbyInterface(m_platform);
@@ -536,12 +541,14 @@ public:
 
         EOS_Lobby_AttributeData attr;
 
+        // 属性を適当に設定
         AddAttribute(modification, MakeAttribute(attr, "boolean", true));
         AddAttribute(modification, MakeAttribute(attr, "double_val", 11.2));
         AddAttribute(modification, MakeAttribute(attr, "str", "abcde"));
         AddAttribute(modification, MakeAttribute(attr, "test", test_value));
         AddAttribute(modification, MakeAttribute(attr, "number", number));
 
+        // サーバー側へ登録を行う
         {
             auto lobby = EOS_Platform_GetLobbyInterface(m_platform);
 
@@ -616,7 +623,7 @@ public:
         assert(async.GetError().IsSuccess());
     }
 
-    /// @brief 検索結果をダンプする
+    /// @brief 検索結果を取り出しコンソールに出力する
     void LobbySearchDump(std::shared_ptr<Search> p)
     {
         auto GetSearchResultCount = [](eos::Handle<EOS_HLobbySearch> search_handle)
@@ -738,11 +745,6 @@ public:
 
 int main()
 {
-    auto tp   = std::chrono::system_clock::now();
-    auto msec = std::chrono::duration_cast<std::chrono::milliseconds>(tp.time_since_epoch());
-
-    int64_t v = msec.count();
-
     EOS eos;
 
     eos.Initialize();
