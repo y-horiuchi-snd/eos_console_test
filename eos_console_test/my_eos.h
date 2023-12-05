@@ -320,7 +320,7 @@ public:
         auth_credentials.ApiVersion = EOS_AUTH_CREDENTIALS_API_LATEST;
 
         // 古いコードのテストが終わってないので、一旦ブラウザ認証のみに固定して移植する
-#if 1
+#if 0
         auth_credentials.Type = EOS_ELoginCredentialType::EOS_LCT_AccountPortal;
 #else
         // 利用したい認証を取得する
@@ -382,6 +382,39 @@ public:
         }
     }
 
+    /// @brief トークンを利用してユーザーを作成する
+    /// @return 作成したIDを返す
+    eos::EpicAccount<EOS_ProductUserId> CreateUser(const EOS_ContinuanceToken& token)
+    {
+        puts(__func__);
+
+        auto connect = EOS_Platform_GetConnectInterface(m_platform);
+
+        EOS_Connect_CreateUserOptions options = {};
+
+        options.ApiVersion       = EOS_CONNECT_CREATEUSER_API_LATEST;
+        options.ContinuanceToken = token;
+
+        Async<eos::EpicAccount<EOS_ProductUserId>> async(*this);
+
+        EOS_Connect_CreateUser(connect,
+                               &options,
+                               &async,
+                               [](const EOS_Connect_CreateUserCallbackInfo* data)
+                               {
+                                   if (!EOS_EResult_IsOperationComplete(data->ResultCode))
+                                       return;
+
+                                   auto a = (Async<eos::EpicAccount<EOS_ProductUserId>>*)data->ClientData;
+                                   a->SetStorage(eos::Error(data->ResultCode), data->LocalUserId);
+                               });
+
+        async.Wait();
+        assert(async.GetError().IsSuccess());
+
+        return async.GetStorage();
+    }
+
     /// @brief 認証情報を使って接続する
     /// @param auth_token 認証情報
     void Connect(eos::Handle<EOS_Auth_Token*> auth_token)
@@ -401,7 +434,7 @@ public:
         options.Credentials   = &credentials;
         options.UserLoginInfo = nullptr;
 
-        Async<eos::EpicAccount<EOS_ProductUserId>> async(*this);
+        Async<EOS_Connect_LoginCallbackInfo> async(*this);
         EOS_Connect_Login(connect,
                           &options,
                           &async,
@@ -409,15 +442,22 @@ public:
                           {
                               if (!EOS_EResult_IsOperationComplete(data->ResultCode))
                                   return;
-                              auto a = (Async<eos::EpicAccount<EOS_ProductUserId>>*)data->ClientData;
-                              a->SetStorage(eos::Error(data->ResultCode), data->LocalUserId);
+                              auto a = (Async<EOS_Connect_LoginCallbackInfo>*)data->ClientData;
+                              a->SetStorage(eos::Error(data->ResultCode), *data);
                           });
         async.Wait();
-        assert(async.GetError().IsSuccess());
 
-        m_local_user_id = async.GetStorage();
+        if (async.GetStorage().ResultCode == EOS_EResult::EOS_InvalidUser)
+        {
+            // EOS_InvalidUser の場合はユーザーがまだ存在していないのでContinuanceTokenを利用してユーザーを作成する必要がある
+            m_local_user_id = CreateUser(async.GetStorage().ContinuanceToken);
+        }
+        else
+        {
+            m_local_user_id = async.GetStorage().LocalUserId;
 
-        assert(async.GetError().IsSuccess());
+            assert(async.GetError().IsSuccess());
+        }
     }
 
     /// @brief ロビーを作成する
