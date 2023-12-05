@@ -319,6 +319,10 @@ public:
 
         auth_credentials.ApiVersion = EOS_AUTH_CREDENTIALS_API_LATEST;
 
+        // 古いコードのテストが終わってないので、一旦ブラウザ認証のみに固定して移植する
+#if 1
+        auth_credentials.Type = EOS_ELoginCredentialType::EOS_LCT_AccountPortal;
+#else
         // 利用したい認証を取得する
         auth_credentials.Type = GetCredentialType();
 
@@ -339,6 +343,7 @@ public:
             default:
                 return eos::Handle<EOS_Auth_Token*>();
         }
+#endif
 
         // ログインを行い認証情報を得る
 

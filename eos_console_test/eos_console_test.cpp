@@ -20,22 +20,19 @@ int main()
 
     std::vector<std::shared_ptr<EOS::Lobby>> lobbies;
 
-    auto lobby = eos.LobbyCreate();
-    lobbies.push_back(lobby);
-
-    eos.LobbySetAttributes(lobby, 0, 1);
-
+    // ロビーを数個作成する
     for (int i = 0; i < 5; i++)
     {
-        auto lobby2 = eos.LobbyCreate();
-        eos.LobbySetAttributes(lobby2, i, 1);
-        lobbies.push_back(lobby2);
+        auto lobby = eos.LobbyCreate();
+        eos.LobbySetAttributes(lobby, i, 1);
+        lobbies.push_back(lobby);
     }
 
     // 反映されるまで少し時間がかかるようなので適当に待機します
     puts("wait");
     ::Sleep(10 * 1000);
 
+    // 属性"test"が1のものを探す
     puts("search 1");
     {
         auto search = eos.LobbySearchCreate(5);
@@ -47,13 +44,14 @@ int main()
         eos.LobbySearchDump(search);
     }
 
+    // 属性"test"が2以上、４未満のものを探す
     puts("search 2");
     {
         auto search = eos.LobbySearchCreate(5);
 
         EOS_Lobby_AttributeData attr;
-        search->AddParameter(EOS::MakeAttribute(attr, "number", 2), EOS_EComparisonOp::EOS_CO_GREATERTHAN);
-        search->AddParameter(EOS::MakeAttribute(attr, "number", 4), EOS_EComparisonOp::EOS_CO_LESSTHANOREQUAL);
+        search->AddParameter(EOS::MakeAttribute(attr, "number", 2), EOS_EComparisonOp::EOS_CO_GREATERTHANOREQUAL);
+        search->AddParameter(EOS::MakeAttribute(attr, "number", 4), EOS_EComparisonOp::EOS_CO_LESSTHAN);
         eos.LobbySearchExecute(search);
 
         eos.LobbySearchDump(search);
