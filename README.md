@@ -115,11 +115,11 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ## ログイン、認証手順
 
-::: mermaid
+```mermaid
 graph TD
  A[EOS_Initialize]-->B[EOS_Platform_Create]
  B-->|EOS_HPlatform|C{EOS_Auth_Login}
  C-->|OK|F[EOS_ProductUserId]
  C-->|EOS_InvalidUser| E[EOS_Connect_CreateUser]
  E-->F[EOS_ProductUserId]
- :::
+```
