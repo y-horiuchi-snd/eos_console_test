@@ -135,4 +135,4 @@ graph TD
 
 ## ライセンス
 
-© 2023, Epic Games, Inc. 無断複写・複製・転載を禁じます。Epic、Epic Games、Epic Gamesのロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engineのロゴ、Unreal TournamentおよびUnreal Tournamentのロゴは米国およびその他の国と地域におけるEpic Games, Inc.の商標または登録商標です。その他のブランドまたは製品名は、それぞれの所有者の商標です。
+© 2023, Epic Games, Inc. Epic、Epic Games、Epic Games のロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engine のロゴ、Unreal Tournament、Unreal Tournament のロゴは、 米国およびその他の国々における Epic Games, Inc. の商標または登録商標であり、無断で複製、転用、転載、使用することはできません。その他のブランドや製品名は、それらを所有する会社の商標です。
