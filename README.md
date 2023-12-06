@@ -2,6 +2,12 @@
 
 This program is lobby function's test for Epic Online Services (EOS).
 
+  - [1.実行準備](#1実行準備)
+  - [2.ビルド](#ビルド)
+  - [3.実行内容](#実行内容)
+  - [4.ログイン、認証手順](#ログイン認証手順)
+  - [5.ライセンス](#ライセンス)
+
 ---
 
 ## 1.実行準備
@@ -108,7 +114,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
-## ビルド
+## 2.ビルド
 
 1. eos_console_testのルートフォルダにcredentials.hを作成し、認証用コードを貼り付けます
 
@@ -118,11 +124,11 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
-## 実行内容
+## 3.実行内容
 
    アプリケーション認証情報とログイン情報を使ってEOSに接続し、ロビー作成、属性設定、検索のテストを行う構成になっています
 
-## ログイン、認証手順
+## 4.ログイン、認証手順
 
 ```mermaid
 graph TD
@@ -133,6 +139,6 @@ graph TD
  E-->F[EOS_ProductUserId]
 ```
 
-## ライセンス
+## 5.ライセンス
 
 © 2023, Epic Games, Inc. Epic、Epic Games、Epic Games のロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engine のロゴ、Unreal Tournament、Unreal Tournament のロゴは、 米国およびその他の国々における Epic Games, Inc. の商標または登録商標であり、無断で複製、転用、転載、使用することはできません。その他のブランドや製品名は、それらを所有する会社の商標です。
