@@ -10,56 +10,63 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 1. サインインにはEPICアカウントが必要です、未作成であれば EPIC アカウントを作成します
 
-   ![DevPortal](画像/000.png "サインイン")
+   ![signin](画像/000.png "サインイン")
 
 1. [DevPortal](https://dev.epicgames.com/portal/ja/) にサインインします
 
-   ![DevPortal](画像/001.png "DevPortal 初期画面")
+   ![initial page](画像/001.png "DevPortal 初期画面")
 
 1. 「製品を作成」からeos_console_test用の製品（プロダクト）を作成します
 
-   ![DevPortal](画像/002.png "製品を作成")
+   ![create product](画像/002.png "製品を作成")
 
 1. 「製品」から作成したプロダクトを選択します
 
-   ![DevPortal](画像/003.png "製品ルート画面")
+   ![product](画像/003.png "製品ルート画面")
 
 1. 「製品設定」を選びます、「製品設定」の画面へ遷移するので「クライアント」をクリックします
 
-   ![DevPortal](画像/004.png "製品設定")
+   ![product setting](画像/004.png "製品設定")
 
 1. 契約同意していない場合、ここで確認が出ます
 
-   ![DevPortal](画像/005.png "製品クライアント - 契約要求")
+   ![product client contract](画像/005.png "製品クライアント - 契約要求")
 
 1. 同意直後は下記のような画面が出ることがあります、リロードすることで先に進めます
 
-   ![DevPortal](画像/006.png "製品クライアント - 契約要求 リロード必要")
+   ![product client contract reload](画像/006.png "製品クライアント - 契約要求 リロード必要")
 
 1. 「新規クライアントを追加」を選択します
 
-   ![DevPortal](画像/007.png "製品設定 - クライアント")
+   ![product client](画像/007.png "製品設定 - クライアント")
 
 1. 新しく追加するクライアントの設定を行います、「クライアント名」を設定したら、「新規クライアントポリシーを追加」をクリックします
 
-   ![DevPortal](画像/008.png "製品設定 - クライアント - 新規クライアント作成")
+   ![product create client](画像/008.png "製品設定 - クライアント - 新規クライアント作成")
 
-1. クライアントポリシーは、EOSのどの機能を利用するかの許可設定を行います、Peer2Peerを選ぶと今回必要としているlobbies,matchingが利用できるポリシーとなります、設定ができたら「新規クライアントポリシーを追加」をクリックします
+1. クライアントポリシーは、EOSのどの機能を利用するかの許可設定を行います、
 
-   ![DevPortal](画像/009.png "製品設定 - クライアント - クライアントポリシー作成")
+   Peer2Peerを選ぶと今回必要としているlobbies,matchingが利用できるポリシーとなります、
+
+   設定ができたら「新規クライアントポリシーを追加」をクリックします
+
+   ![product create client policy](画像/009.png "製品設定 - クライアント - クライアントポリシー作成")
 
 1. 「新規クライアントを追加」をクリックしてクライアントを作成します
 
-   ![DevPortal](画像/010.png "製品設定 - クライアント - クライアントにポリシーを設定")
+   ![product client policy setting](画像/010.png "製品設定 - クライアント - クライアントにポリシーを設定")
 
 1. クライアントの設定が完了したら、クライアントの画面にはこのような情報が表示されます
 
-   ![DevPortal](画像/011.png "製品設定 - クライアント - 設定完了")
+   ![product client setting complete](画像/011.png "製品設定 - クライアント - 設定完了")
 
-1. クライアントが作成できたので、アプリケーションを作成します、「Epicアカウントサービス」をクリックします。
-同意がされていない場合、図のような画面になります、同意する必要があります。
+1. クライアントが作成できたので、アプリケーションを作成します。
 
-   ![DevPortal](画像/012.png "DevPortal - アカウントサービス初期画面")
+   「Epicアカウントサービス」をクリックします、
+
+    同意がされていない場合、図のような画面になります（同意する必要があります）。
+
+   ![account service initial](画像/012.png "DevPortal - アカウントサービス初期画面")
 
 1. アプリケーションを作成、アプリケーションにクラアントを関連付けする画面です、
 
@@ -67,7 +74,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    初期状態で一つ用意されているのでそれを利用するか、「アプリケーションを作成」から新規に作成します。
 
-   ![DevPortal](画像/013.png "DevPortal - アカウントサービス画面")
+   ![account service](画像/013.png "DevPortal - アカウントサービス画面")
 
 1. 「アプリケーション」からクライアントを設定するアプリケーションの「アクセス許可」を選択します。
 
@@ -75,27 +82,29 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    eos_test_consoleは「Basic Profile」のみ要求しているのでデフォルトの設定のまま「変更を保存」を選択します
 
-   ![DevPortal](画像/014.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - アクセス許可")
+   ![account service application access permission](画像/014.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - アクセス許可")
 
-1. 次に「リンク済みのクライアント」を設定します、「クライアントを選択」から作成したクライアントを選択し、「変更を保存」を選択します
+1. 次に「リンク済みのクライアント」を設定します、
 
-   ![DevPortal](画像/015.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - リンク済みのアプリケーション")
+   「クライアントを選択」から作成したクライアントを選択し、「変更を保存」を選択します
 
-1. 次に「リンク済みのクライアント」を設定します、「クライアントを選択」から作成したクライアントを選択し、「変更を保存」を選択します
+   ![account service application linked application](画像/015.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - リンク済みのアプリケーション")
 
-   ![DevPortal](画像/016.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - 設定完了")
+1. アプリケーションの最低限の設定が出来ました
+
+   ![account service application setting complete](画像/016.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - 設定完了")
 
 1. 設定が終わったので、アプリケーションの認証情報を作成します、「製品設定」へ移動します
 
-   ![DevPortal](画像/017.png "製品設定 - ルート")
+   ![product root](画像/017.png "製品設定 - ルート")
 
 1. 「ヘッダーファイルで認証情報を使用する」を選択します
 
-   ![DevPortal](画像/018.png "製品設定 - ヘッダ作成")
+   ![product root create header](画像/018.png "製品設定 - ヘッダ作成")
 
 1. 「理解しました」をクリックすると、認証用のコードが作成されます、右上にコピーボタンがあるのでコピーして利用します。
 
-   ![DevPortal](画像/019.png "製品設定 - ヘッダ作成 - コピー")
+   ![product root create header copy](画像/019.png "製品設定 - ヘッダ作成 - コピー")
 
 ---
 
