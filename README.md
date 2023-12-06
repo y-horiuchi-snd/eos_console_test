@@ -6,9 +6,9 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ## 1.実行準備
 
-### Webサイト上で、アプリケーション登録を行い、テスト用の認証情報を用意します。
+### DevPortal上で、アプリケーション登録を行い、テスト用の認証情報を用意します
 
-1. サインインにはEPICアカウントが必要です、未作成であれば EPIC アカウントを作成します
+1. DevPortalにサインインするにはアカウントが必要です、未作成であれば「Epicアカウント」を作成します
 
    ![signin](画像/000.png "サインイン")
 
@@ -132,3 +132,7 @@ graph TD
  C-->|EOS_InvalidUser| E[EOS_Connect_CreateUser]
  E-->F[EOS_ProductUserId]
 ```
+
+## ライセンス
+
+© 2023, Epic Games, Inc. 無断複写・複製・転載を禁じます。Epic、Epic Games、Epic Gamesのロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engineのロゴ、Unreal TournamentおよびUnreal Tournamentのロゴは米国およびその他の国と地域におけるEpic Games, Inc.の商標または登録商標です。その他のブランドまたは製品名は、それぞれの所有者の商標です。
