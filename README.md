@@ -2,10 +2,12 @@
 
 This program is lobby function's test for Epic Online Services (EOS).
 
+---
+
   - [1.実行準備](#1実行準備)
   - [2.ビルド](#2ビルド)
   - [3.実行内容](#3実行内容)
-  - [4.ログイン、認証手順](#4ログイン認証手順)
+  - [4.ログイン、認証の流れ](#4ログイン認証の流れ)
   - [5.ライセンス](#5ライセンス)
 
 ---
@@ -128,7 +130,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    アプリケーション認証情報とログイン情報を使ってEOSに接続し、ロビー作成、属性設定、検索のテストを行う構成になっています
 
-## 4.ログイン、認証手順
+## 4.ログイン、認証の流れ
 
 ```mermaid
 graph TD
