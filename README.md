@@ -26,7 +26,7 @@
 
 ## 2.実行準備
 
-   [DevPortal](https://dev.epicgames.com/portal/)上で、アプリケーション登録を行い、テスト用の認証情報を用意します
+   [DevPortal](https://dev.epicgames.com/portal/)で、アプリケーション登録を行い、テスト用の認証情報を用意します
 
 1. [DevPortal](https://dev.epicgames.com/portal/)にサインインするにはアカウントが必要です、未作成であれば「Epicアカウント」を作成します
 
