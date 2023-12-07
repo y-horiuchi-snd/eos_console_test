@@ -1,6 +1,6 @@
 # eos_console_test
 
-このソースコードは、[EpicOnlineServices](https://dev.epicgames.com/docs/)(EOS)のロビー機能の動作検証を目的に作られています
+このソースコードは、[EpicOnlineServices](https://dev.epicgames.com/services)(EOS)のロビー機能の動作検証を目的に作られています
 
 ---
 
