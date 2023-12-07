@@ -175,7 +175,7 @@ private:
         puts("ログインタイプを選択");
         do
         {
-            auto _login_type = input("0:EOS_LCT_Password , 1:EOS_LCT_Developer , 2:EOS_LCT_AccountPortal");
+            auto _login_type = input("0:EOS_LCT_Developer , 1:EOS_LCT_AccountPortal");
 
             char* endptr = nullptr;
 
@@ -185,10 +185,8 @@ private:
                 switch (v)
                 {
                     case 0:
-                        return EOS_ELoginCredentialType::EOS_LCT_Password;
-                    case 1:
                         return EOS_ELoginCredentialType::EOS_LCT_Developer;
-                    case 2:
+                    case 1:
                         return EOS_ELoginCredentialType::EOS_LCT_AccountPortal;
                     default:
                         break;
@@ -319,31 +317,34 @@ public:
 
         auth_credentials.ApiVersion = EOS_AUTH_CREDENTIALS_API_LATEST;
 
-        // 古いコードのテストが終わってないので、一旦ブラウザ認証のみに固定して移植する
-#if 0
-        auth_credentials.Type = EOS_ELoginCredentialType::EOS_LCT_AccountPortal;
-#else
         // 利用したい認証を取得する
         auth_credentials.Type = GetCredentialType();
 
         switch (auth_credentials.Type)
         {
+#if 0 // 二段階認証が必須になったので、EOS_LCT_Passwordは事実上動作しない気がします
             case EOS_ELoginCredentialType::EOS_LCT_Password:
-                _auth_id               = input("ユーザー名を入力してください");
-                _auth_token            = input("パスワードを入力してください");
+                assert(false);
+
+                _auth_id    = input("ユーザー名を入力してください");
+                _auth_token = input("パスワードを入力してください");
+
                 auth_credentials.Id    = _auth_id.c_str();
                 auth_credentials.Token = _auth_token.c_str();
                 break;
+#endif
             case EOS_ELoginCredentialType::EOS_LCT_Developer:
-                _auth_id            = input("DevNameを入力してください");
-                auth_credentials.Id = _auth_id.c_str();
+                _auth_id = input("DevAuthToolに表示されているIPアドレスとポートを入力してください");
+                _auth_token = input("DevNameを入力してください");
+
+                auth_credentials.Id    = _auth_id.c_str();
+                auth_credentials.Token = _auth_token.c_str();
                 break;
             case EOS_ELoginCredentialType::EOS_LCT_AccountPortal:
                 break;
             default:
                 return eos::Handle<EOS_Auth_Token*>();
         }
-#endif
 
         // ログインを行い認証情報を得る
 
@@ -598,6 +599,7 @@ public:
         AddAttribute(modification, MakeAttribute(attr, "str", "abcde"));
         AddAttribute(modification, MakeAttribute(attr, "test", test_value));
         AddAttribute(modification, MakeAttribute(attr, "number", number));
+        AddAttribute(modification, MakeAttribute(attr, "id", m_local_user_id.ToString().c_str()));
 
         // サーバー側へ登録を行う
         {

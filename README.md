@@ -4,6 +4,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
+- [eos\_console\_test](#eos_console_test)
   - [1.実行準備](#1実行準備)
   - [2.ビルド](#2ビルド)
   - [3.実行内容](#3実行内容)
@@ -12,9 +13,27 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
+   ビルドまでの簡易手順です
+
+```mermaid
+graph TD
+ A[Epicアカウント作成]-->B[DevPortalへアクセス]
+ B-->C[製品を作成]
+ C-->D[製品クライアント作成]
+ D-->E[製品クライアントポリシー作成、設定、保存]
+ E-->F[製品クライアントへポリシーを設定]
+ F-->G[製品クライアント保存]
+ G-->H[アカウントサービスにアプリケーションを作成、アクセス設定とクライアントを設定]
+ H-->I[認証情報が含まれたヘッダファイルを作成する]
+ I-->J[EOS-SDKをダウンロードして所定の位置に]
+ J-->K[vs2022でeos_console_test.slnを開き、ビルドする]
+```
+
+---
+
 ## 1.実行準備
 
-### DevPortal上で、アプリケーション登録を行い、テスト用の認証情報を用意します
+   DevPortal上で、アプリケーション登録を行い、テスト用の認証情報を用意します
 
 1. DevPortalにサインインするにはアカウントが必要です、未作成であれば「Epicアカウント」を作成します
 
@@ -124,18 +143,20 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 1. eos_console_test.slnをvs2022で開きビルドを行います
 
+   ※実行には EOS-SDK-27379709-v1.16.1\SDK\Bin\EOSSDK-Win64-Shipping.dll が必要になります、必要に応じてコピー等行ってください。
+
 ---
 
 ## 3.実行内容
 
-   アプリケーション認証情報とログイン情報を使ってEOSに接続し、ロビー作成、属性設定、検索のテストを行う構成になっています
+   アプリケーション認証情報とログイン情報を使ってEOSに接続（必要があればユーザー作成）し、ロビー作成、属性設定、検索のテストを行う構成になっています
 
 ## 4.ログイン、認証の流れ
 
 ```mermaid
 graph TD
  A[EOS_Initialize]-->B[EOS_Platform_Create]
- B-->|EOS_HPlatform|C{EOS_Auth_Login}
+ B-->C{EOS_Auth_Login}
  C-->|OK|F[EOS_ProductUserId]
  C-->|EOS_InvalidUser| E[EOS_Connect_CreateUser]
  E-->F[EOS_ProductUserId]
