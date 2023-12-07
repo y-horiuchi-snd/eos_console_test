@@ -322,7 +322,7 @@ public:
 
         switch (auth_credentials.Type)
         {
-#if 0 // 二段階認証が必須になったので、EOS_LCT_Passwordは事実上動作しない気がします
+#if 0 // 二段階認証が必須になったので、開発アカウントではEOS_LCT_Passwordは事実上動作しない気がします
             case EOS_ELoginCredentialType::EOS_LCT_Password:
                 assert(false);
 
