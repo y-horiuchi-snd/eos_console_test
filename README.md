@@ -21,11 +21,13 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    ![signin](画像/000.png "サインイン")
 
-1. [DevPortal](https://dev.epicgames.com/portal/ja/) にサインインします
+1. [DevPortal](https://dev.epicgames.com/portal/ja/) にサインインし、「製品を作成」を選びます
 
    ![initial page](画像/001.png "DevPortal 初期画面")
 
-1. 「製品を作成」からeos_console_test用の製品（プロダクト）を作成します
+1. 「製品を作成」からeos_console_test用の製品（プロダクト）を作成します、
+
+   任意の「製品名」を付け、「作成」を行います
 
    ![create product](画像/002.png "製品を作成")
 
@@ -59,6 +61,10 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    設定ができたら「新規クライアントポリシーを追加」をクリックします
 
+   <details>
+   本来は、アプリケーションに必要な機能のみに絞って有効にするべき項目です
+   </details>
+
    ![product create client policy](画像/009.png "製品設定 - クライアント - クライアントポリシー作成")
 
 1. 「新規クライアントを追加」をクリックしてクライアントを作成します
@@ -67,21 +73,21 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 1. クライアントの設定が完了したら、クライアントの画面にはこのような情報が表示されます
 
-   ![product client setting complete](画像/011.png "製品設定 - クライアント - 設定完了")
-
-1. クライアントが作成できたので、アプリケーションを作成します。
+   クライアントが作成できたので、アプリケーションを作成します。
 
    「Epicアカウントサービス」をクリックします、
 
-    同意がされていない場合、図のような画面になります（同意する必要があります）。
+   ![product client setting complete](画像/011.png "製品設定 - クライアント - 設定完了")
+
+1. 同意がされていない場合、図のような画面になります（同意する必要があります）。
 
    ![account service initial](画像/012.png "DevPortal - アカウントサービス初期画面")
 
 1. アプリケーションを作成、アプリケーションにクラアントを関連付けする画面です、
 
-   作成済みのアプリケーションは「アプリケーション」の項目にならんでいます。
+     作成済みのアプリケーションは「アプリケーション」の項目にならんでいます。
 
-   初期状態で一つ用意されているのでそれを利用するか、「アプリケーションを作成」から新規に作成します。
+     初期状態で一つ用意されているのでそれを利用するか、「アプリケーションを作成」から新規に作成します。
 
    ![account service](画像/013.png "DevPortal - アカウントサービス画面")
 
@@ -103,15 +109,21 @@ This program is lobby function's test for Epic Online Services (EOS).
 
    ![account service application setting complete](画像/016.png "DevPortal - アカウントサービス画面 - アプリケーション設定 - 設定完了")
 
-1. 設定が終わったので、アプリケーションの認証情報を作成します、「製品設定」へ移動します
+1. 設定が終わったので、アプリケーションの認証情報を作成します、「製品設定」へ移動し、
+
+   「ヘッダーファイルで認証情報を使用する」をクリックします
+
+   ※「SDKとリリースノート」からはSDKがダウンロードできます、後ほど利用します。
 
    ![product root](画像/017.png "製品設定 - ルート")
 
-1. 「ヘッダーファイルで認証情報を使用する」を選択します
+1. 「デプロイメント」「クライアント」「アプリケーション」を先ほど作成したものを選択し、
+
+   「「理解しました」をクリックします
 
    ![product root create header](画像/018.png "製品設定 - ヘッダ作成")
 
-1. 「理解しました」をクリックすると、認証用のコードが作成されます、右上にコピーボタンがあるのでコピーして利用します。
+1. 認証用のコードが作成されます、右上にコピーボタンがあるのでコピーして利用します。
 
    ![product root create header copy](画像/019.png "製品設定 - ヘッダ作成 - コピー")
 
@@ -119,7 +131,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ## 2.ビルド
 
-1. eos_console_testのルートフォルダにcredentials.hを作成し、認証用コードを貼り付けます
+1. eos_console_testのルートフォルダにcredentials.hを作成し、「製品の認証情報コード」を貼り付けます
 
 1. 「SDKとリリースノート」から「C SDK」の「EOS-SDK-27379709-v1.16.1」をダウンロードし、eos_console_testのルートフォルダへ解凍します
 
