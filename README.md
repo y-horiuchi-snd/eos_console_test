@@ -1,6 +1,6 @@
 # eos_console_test
 
-このソースコードは、EpicOnlineServices(EOS)のロビー機能の動作検証を目的に作られています
+このソースコードは、[EpicOnlineServices](https://dev.epicgames.com/docs/)(EOS)のロビー機能の動作検証を目的に作られています
 
 ---
 
@@ -32,7 +32,7 @@
 
    ![signin](画像/000.png "サインイン")
 
-1. [DevPortal](https://dev.epicgames.com/portal/ja/) にサインインし、「製品を作成」を選びます
+1. [DevPortal](https://dev.epicgames.com/portal/) にサインインし、「製品を作成」を選びます
 
    ![initial page](画像/001.png "DevPortal 初期画面")
 
