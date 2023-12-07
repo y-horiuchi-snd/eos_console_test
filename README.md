@@ -1,19 +1,30 @@
 # eos_console_test
 
-This program is lobby function's test for Epic Online Services (EOS).
+このソースコードは、EpicOnlineServices(EOS)のロビー機能の動作検証を目的に作られています
 
 ---
 
 - [eos\_console\_test](#eos_console_test)
-  - [1.実行準備](#1実行準備)
-  - [2.ビルド](#2ビルド)
-  - [3.実行内容](#3実行内容)
-  - [4.ログイン、認証の流れ](#4ログイン認証の流れ)
-  - [5.ライセンス](#5ライセンス)
+  - [1.注意点](#1注意点)
+  - [2.実行準備](#2実行準備)
+  - [3.ビルド](#3ビルド)
+  - [4.実行内容](#4実行内容)
+  - [5.ログイン、認証の流れ](#5ログイン認証の流れ)
+  - [6.ライセンス](#6ライセンス)
 
 ---
 
-## 1.実行準備
+## 1.注意点
+
+   ※本ドキュメントで利用しているWebサイトのスクリーンショットは、2023年12月初頭のものを利用しています。
+
+   利用しているEpic Online Services用のSDKは「EOS-SDK-27379709-v1.16.1」を利用したコードとなっております、
+
+   異なったバージョンを利用する際は、必要な個所を適時修正、読み替えるようにしてください。
+
+---
+
+## 2.実行準備
 
    DevPortal上で、アプリケーション登録を行い、テスト用の認証情報を用意します
 
@@ -129,7 +140,7 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
-## 2.ビルド
+## 3.ビルド
 
 1. eos_console_testのルートフォルダにcredentials.hを作成し、「製品の認証情報コード」を貼り付けます
 
@@ -141,11 +152,11 @@ This program is lobby function's test for Epic Online Services (EOS).
 
 ---
 
-## 3.実行内容
+## 4.実行内容
 
    アプリケーション認証情報とログイン情報を使ってEOSに接続（必要があればユーザー作成）し、ロビー作成、属性設定、検索のテストを行う構成になっています
 
-## 4.ログイン、認証の流れ
+## 5.ログイン、認証の流れ
 
 ```mermaid
 graph TD
@@ -156,6 +167,6 @@ graph TD
  E-->F[EOS_ProductUserId]
 ```
 
-## 5.ライセンス
+## 6.ライセンス
 
 © 2023, Epic Games, Inc. Epic、Epic Games、Epic Games のロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engine のロゴ、Unreal Tournament、Unreal Tournament のロゴは、 米国およびその他の国々における Epic Games, Inc. の商標または登録商標であり、無断で複製、転用、転載、使用することはできません。その他のブランドや製品名は、それらを所有する会社の商標です。
