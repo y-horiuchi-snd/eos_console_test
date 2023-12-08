@@ -10,7 +10,7 @@
   - [3.ビルド](#3ビルド)
   - [4.実行内容](#4実行内容)
   - [5.ログイン、認証の流れ](#5ログイン認証の流れ)
-  - [6.ライセンス](#6ライセンス)
+  - [6.権利](#6権利)
 
 ---
 
@@ -167,6 +167,6 @@ graph TD
  E-->F[EOS_ProductUserId]
 ```
 
-## 6.ライセンス
+## 6.権利
 
 © 2023, Epic Games, Inc. Epic、Epic Games、Epic Games のロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engine のロゴ、Unreal Tournament、Unreal Tournament のロゴは、 米国およびその他の国々における Epic Games, Inc. の商標または登録商標であり、無断で複製、転用、転載、使用することはできません。その他のブランドや製品名は、それらを所有する会社の商標です。
