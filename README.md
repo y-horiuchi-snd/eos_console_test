@@ -9,8 +9,9 @@
   - [2.実行準備](#2実行準備)
   - [3.ビルド](#3ビルド)
   - [4.実行内容](#4実行内容)
-  - [5.ログイン、認証の流れ](#5ログイン認証の流れ)
-  - [6.権利](#6権利)
+  - [5.ログイン方式の違い](#5ログイン方式の違い)
+  - [6.ログイン、接続の流れ（EOS\_ProductUserIdを取得するまで）](#6ログイン接続の流れeos_productuseridを取得するまで)
+  - [7.権利](#7権利)
 
 ---
 
@@ -156,17 +157,48 @@
 
    アプリケーション認証情報とログイン情報を使ってEOSに接続（必要があればユーザー作成）し、ロビー作成、属性設定、検索のテストを行う構成になっています
 
-## 5.ログイン、認証の流れ
+## 5.ログイン方式の違い
+
+   EOS_LCT_DeveloperとEOS_LCT_AccountPortalの違い
+
+- EOS_LCT_AccountPortal
+
+     EOS_LCT_AccountPortalはWebブラウザ経由での認証となります。
+
+     特に準備をせずとも使えるため、簡易に試験する場合は便利です
+
+- EOS_LCT_Developer
+
+     EOS_LCT_Developerは開発時のみ利用する機能です
+
+     EOS-SDK-27379709-v1.16.1\SDK\Tools内にある
+
+     EOS_DevAuthToolを常駐起動することで利用できる簡易認証代理サーバーです
+
+     必要に応じて使い分けることで効率的に開発を進めることが出来ます
+
+## 6.ログイン、接続の流れ（EOS_ProductUserIdを取得するまで）
+
+  PC環境でのログインの簡易なフロー図です
+
+  プロダクト内にユーザーが作られていないと、ユーザーを作成する必要があり、
+
+  作成しない限り接続（EOS_Connect_Login）が出来ない、ということが見落としやすい部分です
+
+  また、他の環境では事前にプラットフォームへのログインを行い、
+
+  トークンを準備しておく必要があります（EOS_Connect_Credentials経由で引き渡します）
 
 ```mermaid
 graph TD
  A[EOS_Initialize]-->B[EOS_Platform_Create]
  B-->C{EOS_Auth_Login}
- C-->|OK|F[EOS_ProductUserId]
- C-->|EOS_InvalidUser| E[EOS_Connect_CreateUser]
- E-->F[EOS_ProductUserId]
+ C-->|トークン| E{EOS_Connect_Login}
+ E-->|OK|H[EOS_ProductUserId]
+ E-->|EOS_InvalidUser| G[EOS_Connect_CreateUser]
+ G-->H[EOS_ProductUserId]
 ```
 
-## 6.権利
+## 7.権利
 
 © 2023, Epic Games, Inc. Epic、Epic Games、Epic Games のロゴ、Fortnite/フォートナイト、Fortnite/フォートナイトのロゴ、Unreal、Unreal Engine、Unreal Engine のロゴ、Unreal Tournament、Unreal Tournament のロゴは、 米国およびその他の国々における Epic Games, Inc. の商標または登録商標であり、無断で複製、転用、転載、使用することはできません。その他のブランドや製品名は、それらを所有する会社の商標です。
