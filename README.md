@@ -185,10 +185,6 @@
 
   作成しない限り接続（EOS_Connect_Login）が出来ない、ということが見落としやすい部分です
 
-  また、他の環境では事前にプラットフォームへのログインを行い、
-
-  トークンを準備しておく必要があります（EOS_Connect_Credentials経由で引き渡します）
-
 ```mermaid
 graph TD
  A[EOS_Initialize]-->B[EOS_Platform_Create]
