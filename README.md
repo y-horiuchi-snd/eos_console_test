@@ -155,7 +155,96 @@
 
 ## 4.実行内容
 
-   アプリケーション認証情報とログイン情報を使ってEOSに接続（必要があればユーザー作成）し、ロビー作成、属性設定、検索のテストを行う構成になっています
+   アプリケーション認証情報とログイン情報を使ってEOSに接続（必要があればユーザー作成）し、５件ロビー作成、属性設定、検索のテストを行う構成になっています
+
+   動作時は以下のようなログが出ます
+```text
+Initialize
+Authorize
+ログインタイプを選択
+0:EOS_LCT_Developer , 1:EOS_LCT_AccountPortal
+0
+DevAuthToolに表示されているIPアドレスとポートを入力してください
+localhost:8080
+DevNameを入力してください
+HOSTING
+Connect
+LobbyCreate
+LobbySetAttributes
+LobbyCreate
+LobbySetAttributes
+LobbyCreate
+LobbySetAttributes
+LobbyCreate
+LobbySetAttributes
+LobbyCreate
+LobbySetAttributes
+wait
+search 1
+index:0[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 0
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+index:1[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 3
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+index:2[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 1
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+index:3[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 2
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+index:4[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 4
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+search 2
+index:0[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 3
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+index:1[
+ DOUBLE_VAL 11.200000
+ BOOLEAN true
+ NUMBER 2
+ TEST 1
+ STR abcde
+ ID 00024b70c
+]
+LobbyLeave
+LobbyLeave
+LobbyLeave
+LobbyLeave
+LobbyLeave
+Hello World!
+```
 
 ## 5.ログイン方式の違い
 
