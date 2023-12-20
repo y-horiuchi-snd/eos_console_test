@@ -260,6 +260,8 @@ Hello World!
 
      EOS_LCT_Developerは開発時のみ利用する機能です
 
+     [DevAuthTool](https://dev.epicgames.com/docs/ja/epic-account-services/developer-authentication-tool)
+
      EOS-SDK-27379709-v1.16.1\SDK\Tools内にある
 
      EOS_DevAuthToolを常駐起動することで利用できる簡易認証代理サーバーです
